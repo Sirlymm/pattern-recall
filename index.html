@@ -12,23 +12,11 @@
 <meta name="twitter:creator" content="@adamilenich" />
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --amber-on: #ffcc44;
-    --amber-dim: #2a1c00;
-    --green-on: #00ff88;
-    --green-dim: #003320;
-    --cyan-on: #44ddff;
-    --cyan-dim: #002933;
-    --red-on: #ff6644;
-    --red-dim: #331100;
-    --ghost-on: #ccccaa;
-    --ghost-dim: #1a1a14;
-    --border: #00ff8820;
     --ui-green: #00ff88;
+    --ui-green-dim: #00cc66;
     --bg: #060606;
   }
-
   html, body {
     background: #080808;
     font-family: 'Courier New', Courier, monospace;
@@ -36,250 +24,56 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 32px 16px 48px;
   }
-
-  /* HEADER */
-  .header {
-    text-align: center;
-    margin-bottom: 28px;
-    width: 100%;
-    max-width: 600px;
-  }
-  .brand {
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: #00cc66;
-    opacity: 0.6;
-    margin-bottom: 8px;
-  }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #00ff8840, transparent);
-    margin: 10px 0;
-  }
-  .main-title {
-    font-size: 12px;
-    letter-spacing: 8px;
-    color: var(--ui-green);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .sub-title {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #00cc66;
-    opacity: 0.4;
-    text-transform: lowercase;
-  }
-
-  /* FAMILY SELECTOR */
-  .families {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-  }
-  .fam-btn {
-    background: transparent;
-    border: 1px solid #00ff8828;
-    color: #00ff8866;
-    font-family: 'Courier New', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    padding: 5px 12px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.12s;
-  }
+  .header { text-align: center; margin-bottom: 28px; width: 100%; max-width: 700px; }
+  .brand { font-size: 10px; letter-spacing: 5px; color: #00cc66; opacity: 0.6; margin-bottom: 8px; }
+  .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, #00ff8840, transparent); margin: 10px 0; }
+  .main-title { font-size: 12px; letter-spacing: 8px; color: var(--ui-green); text-transform: uppercase; margin-bottom: 4px; }
+  .sub-title { font-size: 9px; letter-spacing: 3px; color: #00cc66; opacity: 0.4; text-transform: lowercase; }
+  .families { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 700px; }
+  .fam-btn { background: transparent; border: 1px solid #00ff8828; color: #00ff8866; font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: 2px; padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.12s; }
   .fam-btn:hover { border-color: #00ff8866; color: #00ff8899; }
   .fam-btn.active[data-color="amber"] { border-color: #ffcc44; color: #ffcc44; }
   .fam-btn.active[data-color="green"] { border-color: #00ff88; color: #00ff88; }
   .fam-btn.active[data-color="cyan"]  { border-color: #44ddff; color: #44ddff; }
   .fam-btn.active[data-color="red"]   { border-color: #ff6644; color: #ff6644; }
   .fam-btn.active[data-color="ghost"] { border-color: #ccccaa; color: #ccccaa; }
-
-  /* INPUT ROW */
-  .input-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 14px;
-    width: 100%;
-    max-width: 600px;
-    align-items: stretch;
-  }
-  .input-wrap {
-    flex: 1;
-    position: relative;
-  }
-  .input-wrap::before {
-    content: '▸';
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--ui-green);
-    font-size: 12px;
-    pointer-events: none;
-  }
-  input[type="text"] {
-    width: 100%;
-    height: 100%;
-    background: #0a0a0a;
-    border: 1px solid #00ff8840;
-    color: #ffcc44;
-    font-family: 'Courier New', monospace;
-    font-size: 15px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    padding: 12px 12px 12px 30px;
-    outline: none;
-    caret-color: var(--ui-green);
-    transition: border-color 0.12s;
-  }
+  .input-row { display: flex; gap: 10px; margin-bottom: 14px; width: 100%; max-width: 700px; align-items: stretch; }
+  .input-wrap { flex: 1; position: relative; }
+  .input-wrap::before { content: '▸'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ui-green); font-size: 12px; pointer-events: none; }
+  input[type="text"] { width: 100%; height: 100%; background: #0a0a0a; border: 1px solid #00ff8840; color: #ffcc44; font-family: 'Courier New', monospace; font-size: 15px; letter-spacing: 4px; text-transform: uppercase; padding: 12px 12px 12px 30px; outline: none; caret-color: var(--ui-green); transition: border-color 0.12s; }
   input[type="text"]:focus { border-color: var(--ui-green); }
   input[type="text"]::placeholder { color: #ffcc4430; font-size: 12px; letter-spacing: 3px; }
-
-  .run-btn {
-    background: #0a0a0a;
-    border: 1px solid var(--ui-green);
-    color: var(--ui-green);
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    padding: 12px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background 0.12s;
-    white-space: nowrap;
-  }
+  .run-btn { background: #0a0a0a; border: 1px solid var(--ui-green); color: var(--ui-green); font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 2px; padding: 12px 20px; cursor: pointer; text-transform: uppercase; transition: background 0.12s; white-space: nowrap; }
   .run-btn:hover:not(:disabled) { background: #00ff8818; }
   .run-btn:disabled { opacity: 0.25; cursor: not-allowed; }
-
-  /* NOISE SLIDER */
-  .noise-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
-  }
+  .controls-row { display: flex; gap: 24px; align-items: center; margin-bottom: 20px; width: 100%; max-width: 700px; flex-wrap: wrap; }
+  .noise-row { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 200px; }
   .noise-label { font-size: 9px; letter-spacing: 2px; color: #00ff8850; text-transform: uppercase; min-width: 48px; }
-  input[type="range"] {
-    flex: 1;
-    accent-color: var(--ui-green);
-    height: 2px;
-    cursor: pointer;
-  }
+  input[type="range"] { flex: 1; accent-color: var(--ui-green); height: 2px; cursor: pointer; }
   .noise-val { font-size: 9px; color: #ffcc44; min-width: 36px; text-align: right; letter-spacing: 1px; }
-
-  /* CANVAS DISPLAY */
-  .display-area {
-    width: 100%;
-    max-width: 600px;
-  }
-  .phase-label {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #00cc66;
-    margin-bottom: 8px;
-    opacity: 0.5;
-    text-transform: uppercase;
-  }
-  .canvas-wrap {
-    position: relative;
-    background: var(--bg);
-    border: 1px solid #00ff8818;
-    padding: 20px 16px;
-    margin-bottom: 6px;
-    overflow: hidden;
-  }
-  .canvas-wrap::before {
-    content: '+';
-    position: absolute;
-    top: 6px; left: 8px;
-    font-size: 10px;
-    color: #00ff8830;
-  }
-  .canvas-wrap::after {
-    content: '+';
-    position: absolute;
-    bottom: 6px; right: 8px;
-    font-size: 10px;
-    color: #00ff8830;
-  }
-  canvas {
-    display: block;
-    width: 100%;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-  }
-  .scanlines {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba(0,0,0,0.12) 3px,
-      rgba(0,0,0,0.12) 4px
-    );
-    pointer-events: none;
-  }
-
-  /* STATUS BAR */
-  .status-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-  }
-  .status-text {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--ui-green);
-    opacity: 0.45;
-    text-transform: uppercase;
-  }
-  .pass-counter {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #ffcc44;
-    opacity: 0.5;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    margin-top: 12px;
-  }
-  .tagline {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--ui-green);
-    opacity: 0.3;
-    margin-bottom: 10px;
-  }
-  .credit {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #00cc66;
-    opacity: 0.2;
-  }
+  .sound-toggle { background: transparent; border: 1px solid #00ff8828; color: #00ff8866; font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: 2px; padding: 5px 12px; cursor: pointer; text-transform: uppercase; transition: all 0.12s; white-space: nowrap; }
+  .sound-toggle.on { border-color: var(--ui-green); color: var(--ui-green); }
+  .display-area { width: 100%; max-width: 700px; }
+  .phase-label { font-size: 9px; letter-spacing: 3px; color: #00cc66; margin-bottom: 8px; opacity: 0.5; text-transform: uppercase; }
+  .canvas-wrap { position: relative; background: var(--bg); border: 1px solid #00ff8818; padding: 20px 16px; margin-bottom: 6px; overflow: hidden; }
+  .canvas-wrap::before { content: '+'; position: absolute; top: 6px; left: 8px; font-size: 10px; color: #00ff8830; }
+  .canvas-wrap::after { content: '+'; position: absolute; bottom: 6px; right: 8px; font-size: 10px; color: #00ff8830; }
+  canvas { display: block; width: 100%; image-rendering: pixelated; image-rendering: crisp-edges; }
+  .scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px); pointer-events: none; }
+  .status-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+  .status-text { font-size: 9px; letter-spacing: 2px; color: var(--ui-green); opacity: 0.45; text-transform: uppercase; }
+  .pass-counter { font-size: 9px; letter-spacing: 2px; color: #ffcc44; opacity: 0.5; }
+  .footer { text-align: center; margin-top: 12px; }
+  .tagline { font-size: 10px; letter-spacing: 3px; color: var(--ui-green); opacity: 0.3; margin-bottom: 10px; }
+  .credit { font-size: 9px; letter-spacing: 2px; color: #00cc66; opacity: 0.2; }
   .credit a { color: inherit; text-decoration: none; }
   .credit a:hover { opacity: 1; }
-
-  /* MOBILE */
   @media (max-width: 480px) {
     body { padding: 20px 12px 40px; }
     .main-title { font-size: 10px; letter-spacing: 5px; }
@@ -307,15 +101,18 @@
 
 <div class="input-row">
   <div class="input-wrap">
-    <input type="text" id="wordInput" maxlength="10" placeholder="TYPE A WORD" value="MEMORY" autocomplete="off" autocorrect="off" spellcheck="false" />
+    <input type="text" id="wordInput" maxlength="20" placeholder="TYPE YOUR WORD" value="MEMORY" autocomplete="off" autocorrect="off" spellcheck="false" />
   </div>
   <button class="run-btn" id="runBtn" onclick="runRecall()">▸ RUN</button>
 </div>
 
-<div class="noise-row">
-  <span class="noise-label">Noise</span>
-  <input type="range" id="noiseSlider" min="20" max="95" value="75" step="1" />
-  <span class="noise-val" id="noiseVal">75%</span>
+<div class="controls-row">
+  <div class="noise-row">
+    <span class="noise-label">Noise</span>
+    <input type="range" id="noiseSlider" min="20" max="95" value="75" step="1" />
+    <span class="noise-val" id="noiseVal">75%</span>
+  </div>
+  <button class="sound-toggle on" id="soundToggle" onclick="toggleSound()">♦ SOUND ON</button>
 </div>
 
 <div class="display-area">
@@ -336,10 +133,11 @@
 </div>
 
 <script>
-const COLS = 5, ROWS = 7, CELL = 16, GAP = 3;
+const COLS = 5, ROWS = 7, CELL = 14, GAP = 3;
 const CHAR_W = COLS * (CELL + GAP) - GAP;
 const CHAR_H = ROWS * (CELL + GAP) - GAP;
-const CHAR_PAD = 12;
+const CHAR_PAD = 10;
+const MAX_CHARS = 20;
 
 const FONT_MAP = {
   'A':[[0,1,1,0,0],[1,0,0,1,0],[1,0,0,1,0],[1,1,1,1,0],[1,0,0,1,0],[1,0,0,1,0],[0,0,0,0,0]],
@@ -381,6 +179,120 @@ const COLORS = {
 
 let currentColor = 'amber';
 let animFrame = null;
+let soundOn = true;
+let audioCtx = null;
+let masterGain = null;
+let noiseNode = null;
+let noiseGain = null;
+let droneSources = [];
+
+function getAudioCtx() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = soundOn ? 0.4 : 0;
+    masterGain.connect(audioCtx.destination);
+  }
+  return audioCtx;
+}
+
+function makeNoiseBuffer(ctx) {
+  const len = ctx.sampleRate * 2;
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+  return buf;
+}
+
+function startAudio() {
+  if (!soundOn) return;
+  const ctx = getAudioCtx();
+  if (ctx.state === 'suspended') ctx.resume();
+  stopAudio();
+
+  noiseNode = ctx.createBufferSource();
+  noiseNode.buffer = makeNoiseBuffer(ctx);
+  noiseNode.loop = true;
+  const noiseFilter = ctx.createBiquadFilter();
+  noiseFilter.type = 'bandpass';
+  noiseFilter.frequency.value = 800;
+  noiseFilter.Q.value = 0.5;
+  noiseGain = ctx.createGain();
+  noiseGain.gain.value = 0;
+  noiseNode.connect(noiseFilter);
+  noiseFilter.connect(noiseGain);
+  noiseGain.connect(masterGain);
+  noiseNode.start();
+}
+
+function stopAudio() {
+  droneSources.forEach(s => { try { s.stop(); } catch(e){} });
+  droneSources = [];
+  if (noiseNode) { try { noiseNode.stop(); } catch(e){} noiseNode = null; }
+}
+
+function setNoiseLevel(level, time) {
+  if (!noiseGain || !soundOn) return;
+  const ctx = getAudioCtx();
+  noiseGain.gain.cancelScheduledValues(ctx.currentTime);
+  noiseGain.gain.linearRampToValueAtTime(level * 0.6, ctx.currentTime + time);
+}
+
+function playDrone(freq, gainVal, duration) {
+  if (!soundOn) return;
+  const ctx = getAudioCtx();
+  const osc = ctx.createOscillator();
+  const g = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  g.gain.setValueAtTime(0, ctx.currentTime);
+  g.gain.linearRampToValueAtTime(gainVal, ctx.currentTime + 0.3);
+  g.gain.linearRampToValueAtTime(0, ctx.currentTime + duration);
+  osc.connect(g);
+  g.connect(masterGain);
+  osc.start();
+  osc.stop(ctx.currentTime + duration + 0.1);
+  droneSources.push(osc);
+}
+
+function playRecalledChime() {
+  if (!soundOn) return;
+  const ctx = getAudioCtx();
+  [523, 659, 784].forEach((freq, i) => {
+    setTimeout(() => playDrone(freq, 0.15, 1.2), i * 120);
+  });
+}
+
+function updateAudioForPhase(phase, progress) {
+  if (!soundOn || !noiseGain) return;
+  if (phase === 'corrupt') {
+    setNoiseLevel(progress, 0.05);
+  } else if (phase === 'peak') {
+    setNoiseLevel(1, 0.1);
+  } else if (phase === 'recall') {
+    setNoiseLevel(1 - progress, 0.08);
+    if (progress > 0.5 && progress < 0.55) {
+      playDrone(110, 0.08, 2.0);
+    }
+  } else if (phase === 'done') {
+    setNoiseLevel(0, 0.5);
+    playRecalledChime();
+  }
+}
+
+function toggleSound() {
+  soundOn = !soundOn;
+  const btn = document.getElementById('soundToggle');
+  if (soundOn) {
+    btn.textContent = '♦ SOUND ON';
+    btn.classList.add('on');
+    if (masterGain) masterGain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+  } else {
+    btn.textContent = '◇ SOUND OFF';
+    btn.classList.remove('on');
+    if (masterGain) masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+  }
+}
 
 document.querySelectorAll('.fam-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -400,7 +312,7 @@ const ctx = canvas.getContext('2d');
 
 function getWord() {
   return (document.getElementById('wordInput').value || 'MEMORY')
-    .toUpperCase().replace(/[^A-Z ]/g, '').slice(0, 10) || 'MEMORY';
+    .toUpperCase().replace(/[^A-Z ]/g, '').slice(0, MAX_CHARS) || 'MEMORY';
 }
 
 function setupCanvas(word) {
@@ -420,10 +332,8 @@ function drawPattern(patterns, noiseAmount) {
   setupCanvas(word);
   const col = COLORS[currentColor];
   const noiseLevel = parseInt(document.getElementById('noiseSlider').value) / 100;
-
   ctx.fillStyle = '#060606';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   patterns.forEach((pat, ci) => {
     const ox = 20 + ci * (CHAR_W + CHAR_PAD);
     const oy = 20;
@@ -441,9 +351,6 @@ function drawPattern(patterns, noiseAmount) {
       }
     }
   });
-
-  document.getElementById('passCounter').textContent =
-    'PASS ' + String(animFrame ? animFrame : 0).padStart(4, '0');
 }
 
 function drawIdle() {
@@ -460,6 +367,7 @@ function runRecall() {
   const patterns = getPattern(word);
   const btn = document.getElementById('runBtn');
   btn.disabled = true;
+  startAudio();
 
   let pass = 0;
   const total = 85;
@@ -491,13 +399,21 @@ function runRecall() {
       drawPattern(patterns, 0);
       document.getElementById('statusText').textContent = '■ RECALLED · MEMORY RESTORED';
       document.getElementById('passCounter').textContent = 'PASS ' + String(total).padStart(4, '0');
+      updateAudioForPhase('done', 1);
       btn.disabled = false;
       animFrame = null;
       return;
     }
-    drawPattern(patterns, getNoise(pass));
+
+    const noise = getNoise(pass);
+    drawPattern(patterns, noise);
     document.getElementById('statusText').textContent = getStatus(pass);
     document.getElementById('passCounter').textContent = 'PASS ' + String(pass).padStart(4, '0');
+
+    if (pass < 15) updateAudioForPhase('corrupt', pass / 15);
+    else if (pass < 32) updateAudioForPhase('peak', 1);
+    else if (pass < 72) updateAudioForPhase('recall', (pass - 32) / 40);
+
     pass++;
     setTimeout(() => { animFrame = requestAnimationFrame(step); }, getDelay(pass));
   }
